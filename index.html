@@ -1,65 +1,106 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Layblog.github.com by layblog</title>
+---
+layout: index
+title: 
+tagline: Jimney Lee
+links:
+  - url: "https://github.com/jimneylee"
+    name: "github"
+    title: "github"
+  - url: "http://weibo.com/1831553040"
+    name: "weibo"
+    title: "weibo"
+---
+{% include JB/setup %}
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Layblog.github.com</h1>
-        <p>layblog.github.com</p>
+<div class="row-fluid page-body">
 
+  <div class="span9 left">
 
-        <p class="view"><a href="https://github.com/layblog">View My GitHub Profile</a></p>
+    {% for post in paginator.posts %}
+    <div class="main-container shadow">
+      <div class="mainbody">
+        <h3><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>
+        <p>
+          Posted by <strong>{{ site.author.name }}</strong> at <strong>{{ post.date | date: "%Y-%m-%d" }}</strong> with tags {% for tag in post.tags %}<a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag }}-ref" rel="nofollow">{{ tag }}</a>{% if forloop.last %}{% else %}, {% endif %}{% endfor %}
+        </p>
+        {% capture posturl %}<a href="{{ BASE_PATH }}{{ post.url }}" rel="nofollow">More</a>{% endcapture %}
+        <div class="post_at_index thepost">
+        {{ post.content }}
+        </div>
+        <!--<a href="javascript:void(0);" style="float:right" onclick="window.scrollTo(0, 0);">Top</a>-->
+        <div style="clear: both;"></div>
+      </div>
+    </div> 
+    <!-- <article class="post">
+      <div class="meta">
+        <div class="date">
+          <time datetime="2013-08-24T15:50:00+08:00" pubdate data-updated="true">{{ post.date | date: "%Y-%m-%d" }}</time>
+        </div>
+        <div class="tags">
+          <a class='category' href='/blog/categories/ie6/'>ie6</a>
+        </div>
+      </div>
+      <h2 class="title">
+        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+      </h2>
+      <div class="entry-content post_at_index thepost">
+        {{ post.content }}
+      </div>
+    </article> -->
+    {% endfor %}
 
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+    <div class="main-container shadow">
+      <div class="mainbody">
+        {% include ever/pagination %}
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
-</html>
+
+  </div>
+
+  <div class="span3 right">
+    <!--<div class="side-container shadow">
+      <div class="sidebar">
+        <wb:follow-button uid="1988448555" type="red_1" width="63" height="24" ></wb:follow-button>
+      </div>
+    </div>-->
+
+    <div class="side-container shadow">
+      <div class="sidebar">
+        {% unless site.posts == empty %}
+        <h3>Recent Posts</h3>
+        <ul>
+        {% for post in site.posts limit: 10 %}
+          <li><span>{{ post.date | date: "%m-%d" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">
+            {{post.title }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endunless %}
+      </div>
+    </div>
+
+    <div class="side-container shadow">
+      <div class="sidebar">
+        {% unless site.tags == empty %}
+        <h3>Tags</h3>
+        <div class="tag_box">
+        {% assign tags_list = site.tags %}
+        {% include ever/tags_list %}
+        </div>
+        {% endunless %}
+      </div>
+    </div>
+
+    <div class="side-container shadow">
+      <div class="sidebar">
+        {% if page.links %}
+        <h3>Links</h3>
+        <ul>
+        {% assign links = page.links %}
+        {% include ever/links %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</div>
