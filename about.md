@@ -9,20 +9,20 @@ group: "navigation"
 
 ### about me
 
-name: 李进晋
+name: 李爱勇
 
-info: iOS攻城师一枚，爱运动，喜欢技术交流，拥抱开源！
+info: PHP攻城师一枚，爱运动，喜欢技术交流，拥抱开源！
 
 ### contact me
 
-email: [jimneylee(at)gmail.com][email]
+email: [laysoftcom(at)gmail.com][email]
 
-weibo: [jimneylee][weibo]
+weibo: [laysoft][weibo]
 
-github: [jimneylee][github]
+github: [lay595715148][github]
 
-[email]: mailto:jimneylee@gmail.com
+[email]: mailto:laysoftcom@gmail.com
 
-[weibo]: http://weibo.com/jimneylee
+[weibo]: http://weibo.com/laysoft
 
-[github]: http://github.com/jimneylee
+[github]: http://github.com/lay595715148
