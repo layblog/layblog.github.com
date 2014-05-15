@@ -16,10 +16,10 @@ tags:
 1. 序列化对象，然后再反序列化。结果很显然是正确的，且私有属性也被设置了值
 2. 将序列化前的对象与反序列化后的对象进行比较，`==`时返回是true，`===`则返回false，测试代码如下，说明反序列化的过程也是一个实例化的过程
 
-        $str = serialize($obj);
-        $copy = unserialize($str);
-        var_dump($obj == $copy);
-        var_dump($obj === $copy)；
+	$str = serialize($obj);
+	$copy = unserialize($str);
+	var_dump($obj == $copy);
+	var_dump($obj === $copy)；
 
 3. 如果对象是用单例模式实例化的，结果又是如何呢，与第2项测试结果相同，看来我们**可以使用反序列化来突破单例的限制**
 4. 将序列化的字符串取出放在另一个PHP脚本进行反序列化，测试结果返回false。结果也是预料之中，类名找不到的
